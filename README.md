@@ -86,7 +86,7 @@ The transaction will cast a vote as the owner with a weight of 10000 tokens. Thi
 
 NOTE: by default the MyGovernor contract **set a delay of 1 day** to start voting after the proposal is deployed in the network. see [OpenZeppelin MyGovernor contract wizard](https://wizard.openzeppelin.com/#governor) to change this parameter.
 
-### Execute
+### 4. Execute
 The `execute` function looks up the proposal by hashed parameters, so we'll need to pass in our parameters here again for it to go look them up:
 
 1. Paste your `MyToken` contract address inside the `scripts/execute.js` source file;
