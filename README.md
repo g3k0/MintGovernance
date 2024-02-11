@@ -2,9 +2,7 @@
 
 This project demonstrates a basic Governance DApp use case.
 
-
-
-
+The purpose of the voting is to mint some tokens to the owner account.
 
 ## Tech Stack
 The project has been implemented using [HardHat framework](https://hardhat.org/) and make use of the [OpenZeppelin](https://www.openzeppelin.com/) smart contracts:
@@ -39,29 +37,36 @@ After cloning the repository:
 3. use the `scripts/deploy.sh` script to deploy the 2 contracts in the Goerli test network by running:
 
     ```shell
-    npx hardhat run scripts/deploy.js
+    npx hardhat run scripts/deploy.js --network goerli
     ```
-    take note of the contracts addresses released.
+    take note of the contracts addresses released given in output by the script.
 
     If you want to know which are all the methods available for the contracts deployed, you can find them in the [Goerli Etherscan DApp](https://goerli.etherscan.io/),
     searching by contract address.
 
-    If you are lazy and you don't want to deploy the contracts, you can use these already deployed:
-    * MyGovernor: `0x46FDB12B1691850C4C90421C625a6CddE53f1aEc`
-    * MyToken: `0xfE2d64AE8910E1Be1Ac87BCAB7431B78bEAf19f9`
+## Steps for voting
 
-4. Delegate the vote to yourself, by running the delegate script (this step can appear weird, but consider that not always who has the power of vote is the same that votes):
+### 1. Delegate
+Delegate the vote to yourself, by running the delegate script (this step can appear weird, but consider that not always who has the power of vote is the same that votes):
+
+1. Paste your `MyToken contract address` inside the `scripts/delegate.js` source file;
+2. run the following command:
 
     ```shell
-    node scripts/delegate.js <MyToken-contract-address>
+    npx hardhat run scripts/delegate.js --network goerli
     ```
+### 2. Proposing
+Here  we can make a new proposal on the governance system.
 
-Some useful HardHat commands are:
+We could encode any kind of call data or value on this proposal, and we can even specify multiple targets. 
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
-```
+In our case we're trying to mint an extra 25000 tokens to the owner.
+
+1. Paste your `MyToken contract address` inside the `scripts/proposing.js` source file;
+2. Paste your `MyGovernor contract address` inside the `scripts/proposing.js` source file;
+3. Run the following command:
+
+    ```shell
+    npx hardhat run scripts/proposing.js --network goerli
+    ```
+From the `event` object given in output, take note of the `proposalId`.

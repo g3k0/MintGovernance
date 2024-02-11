@@ -9,12 +9,7 @@ const { ethers } = require("hardhat");
 
 async function main() {
 
-  if (process.argv.length < 3) {
-      console.error('Usage: node scripts/deploy <token-contract-address>');
-      process.exit(1);
-  }
-    
-  const tAddress = process.argv[2];
+  const tAddress = "" // insert here your Token contract address
   const [owner] = await ethers.getSigners();
   const oAddress = owner.address
 
