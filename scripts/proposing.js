@@ -19,8 +19,8 @@ async function main() {
 
     const tx = await gContract.propose(
         [tAddress],
-        [11],
-        [tContract.interface.encodeFunctionData('mint', [oAddress, parseEther('19300')])],
+        [0],
+        [tContract.interface.encodeFunctionData('mint', [oAddress, parseEther('25000')])],
         'Give the owner more tokens!'
     );
   

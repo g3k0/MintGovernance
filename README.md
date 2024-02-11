@@ -85,3 +85,15 @@ As the owner with 10000 tokens we have the executive power to push this proposal
 The transaction will cast a vote as the owner with a weight of 10000 tokens. This will be enough for the vote to be successful! Normally, the next step would be to queue this proposal in the Timelock to wait for some period before execution. In this case, we're not using a Timelock so we can go ahead and execute this proposal after the voting period has ended.
 
 NOTE: by default the MyGovernor contract **set a delay of 1 day** to start voting after the proposal is deployed in the network. see [OpenZeppelin MyGovernor contract wizard](https://wizard.openzeppelin.com/#governor) to change this parameter.
+
+### Execute
+The `execute` function looks up the proposal by hashed parameters, so we'll need to pass in our parameters here again for it to go look them up:
+
+1. 
+2.
+3. Run the following command:
+
+    ```shell
+    npx hardhat run scripts/execute.js --network goerli
+    ```
+This will execute our proposal! If successful, the owner should now have 35000 tokens because the governance proposal will target the ERC20 token and pass in the calldata to mint 25000 tokens.
