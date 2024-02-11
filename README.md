@@ -89,8 +89,8 @@ NOTE: by default the MyGovernor contract **set a delay of 1 day** to start votin
 ### Execute
 The `execute` function looks up the proposal by hashed parameters, so we'll need to pass in our parameters here again for it to go look them up:
 
-1. 
-2.
+1. Paste your `MyToken` contract address inside the `scripts/execute.js` source file;
+2. Paste your `MyGovernor` contract address inside the `scripts/execute.js` source file;
 3. Run the following command:
 
     ```shell
