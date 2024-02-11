@@ -36,7 +36,7 @@ After cloning the repositor\y:
     * ALCHEMY_API_KEY
 
     Such variables are provided by Alchemy and you can find them in your Alchemy account.
-3. use the `scripts/deploy.sh` script by running:
+3. use the `scripts/deploy.sh` script to deploy the 2 contracts in the Goerli test network by running:
 
     ```shell
     npx hardhat run scripts/deploy.js --network goerli
