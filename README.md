@@ -29,8 +29,11 @@ This project has been implemented and tested on linux machines. It may not works
 
 
 ## How to run
-After cloning the repository:
+After cloning the repositor\y:
 1. Install the dependencies by running `npm i`
+
+
+Some useful HardHat commands are:
 
 ```shell
 npx hardhat help
