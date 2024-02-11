@@ -36,10 +36,24 @@ After cloning the repositor\y:
     * ALCHEMY_API_KEY
 
     Such variables are provided by Alchemy and you can find them in your Alchemy account.
-3. use the `scripts/deploy.sh` script to deploy the 2 contracts in the Goerli test network by running:
+3. use the `scripts/1_deploy.sh` script to deploy the 2 contracts in the Goerli test network by running:
 
     ```shell
-    npx hardhat run scripts/deploy.js --network goerli
+    npx hardhat run scripts/1_deploy.js --network goerli
+    ```
+    take note of the contracts addresses released.
+
+    If you want to know which are all the methods available for the contracts deployed, you can find them in the [Goerli Etherscan DApp](https://goerli.etherscan.io/),
+    searching by contract address.
+    
+    If you are lazy and you don't want to deploy the contracts, you can use these already deployed:
+    * MyGovernor: `0x46FDB12B1691850C4C90421C625a6CddE53f1aEc`
+    * MyToken: `0xfE2d64AE8910E1Be1Ac87BCAB7431B78bEAf19f9`
+
+4. Delegate the vote to yourself, by running the delegate script:
+
+    ```shell
+    npx hardhat run scripts/1_delegate.js --network goerli
     ```
 
 Some useful HardHat commands are:
