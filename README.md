@@ -27,11 +27,15 @@ This project has been implemented and tested on linux machines. It may not works
 * [Node.js](https://nodejs.org/en) v20.9.0 or above;
 * npm v10.1.0 or above;
 
-
 ## How to run
 After cloning the repositor\y:
 1. Install the dependencies by running `npm i`
+2. create a `.env` file in the root folder of the project and set the following variables:
+    * GOERLI_URL
+    * PRIVATE_KEY
+    * ALCHEMY_API_KEY
 
+    Such variables are provided by Alchemy and you can find them in your Alchemy account.
 
 Some useful HardHat commands are:
 
