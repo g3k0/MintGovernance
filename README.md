@@ -28,7 +28,7 @@ This project has been implemented and tested on linux machines. It may not works
 * npm v10.1.0 or above;
 
 ## How to run
-After cloning the repositor\y:
+After cloning the repository:
 1. Install the dependencies by running `npm i`
 2. create a `.env` file in the root folder of the project and set the following variables:
     * GOERLI_URL
@@ -36,10 +36,10 @@ After cloning the repositor\y:
     * ALCHEMY_API_KEY
 
     Such variables are provided by Alchemy and you can find them in your Alchemy account.
-3. use the `scripts/1_deploy.sh` script to deploy the 2 contracts in the Goerli test network by running:
+3. use the `scripts/deploy.sh` script to deploy the 2 contracts in the Goerli test network by running:
 
     ```shell
-    npx hardhat run scripts/1_deploy.js --network goerli
+    npx hardhat run scripts/deploy.js
     ```
     take note of the contracts addresses released.
 
@@ -53,7 +53,7 @@ After cloning the repositor\y:
 4. Delegate the vote to yourself, by running the delegate script (this step can appear weird, but consider that not always who has the power of vote is the same that votes):
 
     ```shell
-    npx hardhat run scripts/1_delegate.js --network goerli
+    node scripts/delegate.js <MyToken-contract-address>
     ```
 
 Some useful HardHat commands are:
