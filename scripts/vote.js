@@ -1,3 +1,21 @@
-// proposalId --> 86375863448854298389857298188444813421932836676245784943587616523346723976931
-// MyGovernor: `0x46FDB12B1691850C4C90421C625a6CddE53f1aEc`
-//  MyToken: `0xfE2d64AE8910E1Be1Ac87BCAB7431B78bEAf19f9`
+/**
+ * As the owner with 10000 tokens we have the executive power to push this proposal through.
+ * Let's go ahead and vote on this proposal so we can execute it
+ */
+
+async function main() {
+    const gAddress = ""; // paste here your Governor contract address
+    const proposalId = "" // paste here your proposalId
+    const gContract = await ethers.getContractAt('MyGovernor', gAddress);
+
+    const tx = await gContract.castVote(proposalId, 1);
+    const receipt = await tx.wait();
+    const voteCastEvent = receipt.events.find(x => x.event === 'VoteCast');
+
+    console.log('voteCastEvent: ', voteCastEvent)
+}
+
+main().catch((error) => {
+    console.error(error);
+    process.exitCode = 1;
+});

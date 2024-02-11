@@ -49,7 +49,7 @@ After cloning the repository:
 ### 1. Delegate
 Delegate the vote to yourself, by running the delegate script (this step can appear weird, but consider that not always who has the power of vote is the same that votes):
 
-1. Paste your `MyToken contract address` inside the `scripts/delegate.js` source file;
+1. Paste your `MyToken` contract address inside the `scripts/delegate.js` source file;
 2. run the following command:
 
     ```shell
@@ -62,11 +62,26 @@ We could encode any kind of call data or value on this proposal, and we can even
 
 In our case we're trying to mint an extra 25000 tokens to the owner.
 
-1. Paste your `MyToken contract address` inside the `scripts/proposing.js` source file;
-2. Paste your `MyGovernor contract address` inside the `scripts/proposing.js` source file;
+1. Paste your `MyToken` contract address inside the `scripts/proposing.js` source file;
+2. Paste your `MyGovernor` contract address inside the `scripts/proposing.js` source file;
 3. Run the following command:
 
     ```shell
     npx hardhat run scripts/proposing.js --network goerli
     ```
 From the `event` object given in output, take note of the `proposalId`.
+
+### 3. Vote
+As the owner with 10000 tokens we have the executive power to push this proposal through. Let's go ahead and vote on this proposal so we can execute it.
+
+1. Paste your `MyGovernor` contract address inside the `scripts/vote.js` source file;
+2. Paste your `proposalId` inside the `scripts/vote.js` source file;
+3. Run the following command: 
+
+    ```shell
+    npx hardhat run scripts/vote.js --network goerli
+    ```
+
+The transaction will cast a vote as the owner with a weight of 10000 tokens. This will be enough for the vote to be successful! Normally, the next step would be to queue this proposal in the Timelock to wait for some period before execution. In this case, we're not using a Timelock so we can go ahead and execute this proposal after the voting period has ended.
+
+NOTE: by default the MyGovernor contract **set a delay of 1 day** to start voting after the proposal is deployed in the network. see [OpenZeppelin MyGovernor contract wizard](https://wizard.openzeppelin.com/#governor) to change this parameter.

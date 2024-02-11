@@ -19,17 +19,21 @@ async function main() {
 
     const tx = await gContract.propose(
         [tAddress],
-        [0],
-        [tContract.interface.encodeFunctionData('mint', [oAddress, parseEther('25000')])],
+        [11],
+        [tContract.interface.encodeFunctionData('mint', [oAddress, parseEther('19300')])],
         'Give the owner more tokens!'
     );
   
     const receipt = await tx.wait();
     const event = receipt.events.find(x => x.event === 'ProposalCreated');
     console.log('event: ', event)
-  }
+    
+    const proposalId = event?.args?.proposalId.toString();
 
-  main().catch((error) => {
+    console.log('proposalId: ', proposalId)
+}
+
+main().catch((error) => {
     console.error(error);
     process.exitCode = 1;
-  });
+});
